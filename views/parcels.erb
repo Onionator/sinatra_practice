@@ -1,0 +1,24 @@
+<h1>All deliveries fast</h1>
+
+<h3>All parcels</h3>
+
+<% if @parcels.any? %>
+  <ul>
+    <% @parcels.each do |parcel| %>
+        <li><a href="/parcels/<%= parcel.id %>"><%= parcel.address %></a></li>
+      <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no parcels to display.</p>
+<% end %>
+
+<a href="/parcels/new">Add a new parcel</a>
+<hr>
+<form action="/parcels">
+  <div class="form-group">
+    <label for="search">Search</label>
+    <input id="search" name="search" class="form-control" type="text">
+  </div>
+
+  <button type="submit" class="btn">Go!</button>
+</form>
